@@ -47,12 +47,7 @@ class RunPeetyController extends Controller
         }
 
         try{
-            /*
-            $pass = "lTuJryvmP2UotAIcg6Wnrbu9pkvzyShJzCgRYB1DuLPLboNfkyszxLyMVUbiAjPZJWGvlxWD6Cf7QQbYcroA0KcMscSSjxIQjc9vyVWun1s1GrQGI26zA79T7RBee9Sm";
-            $encodedClean = str_replace($pass,"",$encodedString);
-            $decoded = base64_decode($encodedClean);
-            */
-           
+            
             $cleanString = $this->cryptography->decrypt($encodedString);
 
             $json = json_decode($cleanString);
