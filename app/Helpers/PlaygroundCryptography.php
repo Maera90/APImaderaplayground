@@ -18,8 +18,4 @@ class PlaygroundCryptography
         $decoded = base64_decode($encodedClean);
         return $decoded;
     }
-
-
-
-
 }

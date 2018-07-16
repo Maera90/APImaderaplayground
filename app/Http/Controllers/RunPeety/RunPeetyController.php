@@ -42,11 +42,16 @@ class RunPeetyController extends Controller
         }
 
         try{
+            /*
             $pass = "lTuJryvmP2UotAIcg6Wnrbu9pkvzyShJzCgRYB1DuLPLboNfkyszxLyMVUbiAjPZJWGvlxWD6Cf7QQbYcroA0KcMscSSjxIQjc9vyVWun1s1GrQGI26zA79T7RBee9Sm";
             $encodedClean = str_replace($pass,"",$encodedString);
             $decoded = base64_decode($encodedClean);
+            */
+            $crypto = new PlaygroundCryptography();
+            $cleanString = $crypto->decrypt($encodedString);
 
-            $json = json_decode($decoded);
+            $json = json_decode($cleanString);
+
             $dbPoint = new RunPeetyPoint();
             $dbPoint->name = $json->name;
             $dbPoint->points = $json->points;
