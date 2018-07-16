@@ -9,6 +9,11 @@ use App\Http\Controllers\Controller;
 
 class RunPeetyController extends Controller
 {
+    private $cryptography;
+    public function __construct(){
+        $this->cryptography = new PlaygroundCryptography();
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -47,8 +52,8 @@ class RunPeetyController extends Controller
             $encodedClean = str_replace($pass,"",$encodedString);
             $decoded = base64_decode($encodedClean);
             */
-            $crypto = new PlaygroundCryptography();
-            $cleanString = $crypto->decrypt($encodedString);
+           
+            $cleanString = $this->cryptography->decrypt($encodedString);
 
             $json = json_decode($cleanString);
 
