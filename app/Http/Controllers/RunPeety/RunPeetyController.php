@@ -21,7 +21,7 @@ class RunPeetyController extends Controller
      */
     public function index()
     {
-        $points = RunPeetyPoint::orderBy('points','desc')->take(10)->get();
+        $points = RunPeetyPoint::orderBy('points','desc')->take(100)->get();
 
         $json = [
             'data'=> $points
